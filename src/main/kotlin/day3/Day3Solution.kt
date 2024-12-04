@@ -1,12 +1,12 @@
 package day3
 
-import day3.checkers.ExactStringChecker
-import day3.checkers.NumberPartChecker
-import day3.checkers.StringCharCheckResult.*
-import day3.checkers.StringPartChecker
+import shared.checkers.ExactStringChecker
+import shared.checkers.NumberPartChecker
+import shared.checkers.StringCharCheckResult.*
+import shared.checkers.StringPartChecker
 import java.util.Scanner
 
-class Solution(val scanner: Scanner) {
+class Day3Solution(val scanner: Scanner) {
     private val checkers: Array<StringPartChecker<*>> = arrayOf(
         ExactStringChecker("mul("),
         NumberPartChecker(','),

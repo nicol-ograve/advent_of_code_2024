@@ -26,7 +26,7 @@ object Down : Direction {
 
 object Left : Direction {
     override fun moveFrom(startPoint: Point, times: Int): Point {
-        return startPoint.copy(x = startPoint.x - 1)
+        return startPoint.copy(x = startPoint.x - times)
     }
 
     override val reverse: Direction
@@ -35,7 +35,7 @@ object Left : Direction {
 
 object Right : Direction {
     override fun moveFrom(startPoint: Point, times: Int): Point {
-        return startPoint.copy(x = startPoint.x + 1)
+        return startPoint.copy(x = startPoint.x + times)
     }
 
     override val reverse: Direction
@@ -45,35 +45,35 @@ object Right : Direction {
 
 object DownRight : Direction {
     override fun moveFrom(startPoint: Point, times: Int): Point {
-        return startPoint.copy(x = startPoint.x + 1, y = startPoint.y - 1)
+        return startPoint.copy(x = startPoint.x + times, y = startPoint.y + times)
     }
 
     override val reverse: Direction
-        get() = TopLeft
+        get() = UpLeft
 }
 
 
 object DownLeft : Direction {
     override fun moveFrom(startPoint: Point, times: Int): Point {
-        return startPoint.copy(x = startPoint.x - 1, y = startPoint.y - 1)
+        return startPoint.copy(x = startPoint.x - times, y = startPoint.y + times)
     }
 
     override val reverse: Direction
-        get() = TopRight
+        get() = UpRight
 }
 
-object TopLeft : Direction {
+object UpLeft : Direction {
     override fun moveFrom(startPoint: Point, times: Int): Point {
-        return startPoint.copy(x = startPoint.x - 1, y = startPoint.y + 1)
+        return startPoint.copy(x = startPoint.x - times, y = startPoint.y - times)
     }
 
     override val reverse: Direction
         get() = DownRight
 }
 
-object TopRight : Direction {
+object UpRight : Direction {
     override fun moveFrom(startPoint: Point, times: Int): Point {
-        return startPoint.copy(x = startPoint.x + 1, y = startPoint.y + 1)
+        return startPoint.copy(x = startPoint.x + times, y = startPoint.y - times)
     }
 
     override val reverse: Direction

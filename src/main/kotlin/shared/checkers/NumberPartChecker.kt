@@ -1,6 +1,6 @@
-package day3.checkers
+package shared.checkers
 
-import day3.checkers.StringCharCheckResult.*
+import shared.checkers.StringCharCheckResult.*
 
 class NumberPartChecker(private val termination: Char) : StringPartChecker<Int> {
     private var currentValue = ""

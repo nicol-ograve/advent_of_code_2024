@@ -1,6 +1,6 @@
-package day3.checkers
+package shared.checkers
 
-import day3.checkers.StringCharCheckResult.PartCompleted
+import shared.checkers.StringCharCheckResult.PartCompleted
 
 class ExactStringChecker(private val stringToCheck: String) : StringPartChecker<Nothing?> {
 

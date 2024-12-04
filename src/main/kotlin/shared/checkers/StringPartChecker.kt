@@ -1,4 +1,4 @@
-package day3.checkers
+package shared.checkers
 
 sealed class StringCharCheckResult<out T> {
     object Failed : StringCharCheckResult<Nothing>()
