@@ -2,6 +2,8 @@ package utils
 
 import java.io.FileOutputStream
 import java.net.URL
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
 import java.nio.channels.Channels
 import java.nio.file.Files
 import java.nio.file.Path
@@ -10,7 +12,7 @@ import java.nio.file.Paths
 
 
 fun main(args: Array<String>) {
-    createPackagesForDay(5)
+    createPackagesForDay(7)
 }
 
 fun createPackagesForDay(day: Int) {
@@ -25,6 +27,9 @@ fun createPackagesForDay(day: Int) {
     val mainFilePath = Paths.get("$path/Day$day.kt");
     Files.createFile(mainFilePath)
     Files.writeString(mainFilePath, mainFileContent(day))
+
+
+
 }
 
 
@@ -35,7 +40,7 @@ fun mainFileContent(day: Int): String {
     import utils.getDataScanner
             import java.util.Scanner
 
-    fun main(args: Array<String>) {
+    fun main() {
         val isDemo = true
         val scanner = getDataScanner($day, if (isDemo) arrayOf("demo") else emptyArray())
         
