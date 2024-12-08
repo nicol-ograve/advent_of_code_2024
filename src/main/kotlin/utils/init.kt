@@ -1,18 +1,11 @@
 package utils
 
-import java.io.FileOutputStream
-import java.net.URL
-import java.net.http.HttpClient
-import java.net.http.HttpRequest
-import java.nio.channels.Channels
 import java.nio.file.Files
-import java.nio.file.Path
 import java.nio.file.Paths
 
 
-
 fun main(args: Array<String>) {
-    createPackagesForDay(7)
+    createPackagesForDay(8)
 }
 
 fun createPackagesForDay(day: Int) {
