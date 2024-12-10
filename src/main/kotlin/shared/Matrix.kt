@@ -23,7 +23,7 @@ fun <T> Array<Array<T>>.print() {
     }
 }
 
-fun <T> Array<Array<T>>.rows(): Int {
+fun <T> Matrix<T>.rows(): Int {
     return size
 }
 

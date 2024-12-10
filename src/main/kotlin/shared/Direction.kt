@@ -5,7 +5,7 @@ sealed interface Direction {
     fun moveFrom(startPoint: Point, times: Int = 1): Point
      fun canTravelFrom(currentPosition: Point, startPoint: Point): Boolean
 
-    val reverse: Direction
+    val reversed: Direction
 }
 
 object Up : Direction {
@@ -17,7 +17,7 @@ object Up : Direction {
         return startPoint.x == endPoint.x && startPoint.y >= endPoint.y
     }
 
-    override val reverse: Direction
+    override val reversed: Direction
         get() = Down
 }
 
@@ -31,7 +31,7 @@ object Down : Direction {
         return startPoint.x == endPoint.x && startPoint.y <= endPoint.y
     }
 
-    override val reverse: Direction
+    override val reversed: Direction
         get() = Up
 }
 
@@ -44,7 +44,7 @@ object Left : Direction {
         return startPoint.y == endPoint.y && startPoint.x >= endPoint.x
     }
 
-    override val reverse: Direction
+    override val reversed: Direction
         get() = Right
 }
 
@@ -56,7 +56,7 @@ object Right : Direction {
     override fun canTravelFrom(startPoint:  Point, endPoint: Point): Boolean {
         return startPoint.y == endPoint.y && startPoint.x <= endPoint.x
     }
-    override val reverse: Direction
+    override val reversed: Direction
         get() = Left
 }
 
@@ -70,7 +70,7 @@ object DownRight : Direction {
         TODO("Not yet implemented")
     }
 
-    override val reverse: Direction
+    override val reversed: Direction
         get() = UpLeft
 }
 
@@ -84,7 +84,7 @@ object DownLeft : Direction {
         TODO("Not yet implemented")
     }
 
-    override val reverse: Direction
+    override val reversed: Direction
         get() = UpRight
 }
 
@@ -97,7 +97,7 @@ object UpLeft : Direction {
         TODO("Not yet implemented")
     }
 
-    override val reverse: Direction
+    override val reversed: Direction
         get() = DownRight
 }
 
@@ -110,7 +110,7 @@ object UpRight : Direction {
         TODO("Not yet implemented")
     }
 
-    override val reverse: Direction
+    override val reversed: Direction
         get() = DownLeft
 }
 
