@@ -3,7 +3,7 @@ package shared
 
 sealed interface Direction {
     fun moveFrom(startPoint: Point, times: Int = 1): Point
-     fun canTravelFrom(currentPosition: Point, startPoint: Point): Boolean
+    fun canTravelFrom(currentPosition: Point, startPoint: Point): Boolean
 
     val reversed: Direction
 }
@@ -13,7 +13,7 @@ object Up : Direction {
         return startPoint.copy(y = startPoint.y - times)
     }
 
-    override fun canTravelFrom(startPoint:  Point, endPoint: Point): Boolean {
+    override fun canTravelFrom(startPoint: Point, endPoint: Point): Boolean {
         return startPoint.x == endPoint.x && startPoint.y >= endPoint.y
     }
 
@@ -27,7 +27,7 @@ object Down : Direction {
     }
 
 
-    override fun canTravelFrom(startPoint:  Point, endPoint: Point): Boolean {
+    override fun canTravelFrom(startPoint: Point, endPoint: Point): Boolean {
         return startPoint.x == endPoint.x && startPoint.y <= endPoint.y
     }
 
@@ -40,7 +40,7 @@ object Left : Direction {
         return startPoint.copy(x = startPoint.x - times)
     }
 
-    override fun canTravelFrom(startPoint:  Point, endPoint: Point): Boolean {
+    override fun canTravelFrom(startPoint: Point, endPoint: Point): Boolean {
         return startPoint.y == endPoint.y && startPoint.x >= endPoint.x
     }
 
@@ -53,9 +53,10 @@ object Right : Direction {
         return startPoint.copy(x = startPoint.x + times)
     }
 
-    override fun canTravelFrom(startPoint:  Point, endPoint: Point): Boolean {
+    override fun canTravelFrom(startPoint: Point, endPoint: Point): Boolean {
         return startPoint.y == endPoint.y && startPoint.x <= endPoint.x
     }
+
     override val reversed: Direction
         get() = Left
 }
@@ -117,14 +118,17 @@ object UpRight : Direction {
 
 fun Direction.turn90DegRight(): Direction {
     return when (this) {
-
+        Up -> Right
+        UpRight -> DownRight
+        Right -> Down
+        DownRight -> DownLeft
         Down -> Left
         DownLeft -> UpLeft
-        DownRight -> DownLeft
         Left -> Up
-        Right -> Down
-        Up -> Right
         UpLeft -> UpRight
-        UpRight -> DownRight
     }
+}
+
+fun Direction.turn90DegLeft(): Direction {
+    return this.reversed.turn90DegRight()
 }

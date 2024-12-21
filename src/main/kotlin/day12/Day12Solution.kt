@@ -33,6 +33,9 @@ class Day12Solution(private val matrix: Matrix<Char>) {
         val regionPoints = hashSetOf<Point>(startPoint)
         val pointsToCheck = mutableListOf(startPoint)
 
+        val perimeterPoints = hashSetOf<Point>()
+        val boundaries = hashSetOf<PerimeterBoundary>()
+
         val regionChar = matrix[startPoint]
 
         while (pointsToCheck.isNotEmpty()) {
@@ -44,6 +47,8 @@ class Day12Solution(private val matrix: Matrix<Char>) {
 
                 if (!matrix.inRange(nextPoint) || matrix[nextPoint] != regionChar) {
                     perimeter++
+                    perimeterPoints.add(point)
+                    boundaries.add(PerimeterBoundary(point, dir))
                 } else if (!regionPoints.contains(nextPoint)) {
                     regionPoints.add(nextPoint)
                     pointsToCheck.add(nextPoint)
@@ -54,14 +59,46 @@ class Day12Solution(private val matrix: Matrix<Char>) {
 
         }
 
-        val price = perimeter * area
-        // println("PointsToCheck: ${regionPoints.size}")
-        // println("A region of $regionChar plants with price $area * $perimeter = $price.")
+        val sides = calculatePerimeterSides(boundaries.toMutableList(), regionChar)
 
-        return price
+        return sides * area
 
     }
 }
 
+private fun calculatePerimeterSides(boundaries: MutableList<PerimeterBoundary>, char: Char): Int {
+    var sides = 0
+
+    while (boundaries.isNotEmpty()) {
+        val item = boundaries.removeFirst()
+        sides++
+
+        val direction = item.direction
+        val crossDirections = arrayOf(direction.turn90DegLeft(), direction.turn90DegRight())
+
+        crossDirections.forEach { dir ->
+            var currentPosition = item.point
+
+            do {
+                val newPosition = dir.moveFrom(currentPosition)
+                val isSameSide = boundaries.removeIf { it.point == newPosition && it.direction == item.direction }
+
+                if (isSameSide) {
+                    currentPosition = newPosition
+                }
+
+            } while (isSameSide)
+
+        }
+
+
+    }
+
+    return sides
+
+}
+
 
 val directions = arrayOf(Up, Right, Down, Left)
+
+data class PerimeterBoundary(val point: Point, val direction: Direction)
