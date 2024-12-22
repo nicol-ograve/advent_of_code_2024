@@ -15,8 +15,9 @@ fun <T> Array<Array<T>>.inRange(point: Point): Boolean {
 }
 
 fun <T> Array<Array<T>>.print() {
-    for(row in indices){
-        for(column in this[row].indices){
+    for (row in indices) {
+        for (column in this[row].indices) {
+            //print(if (this[row][column] == 0) '.' else this[row][column])
             print(this[row][column])
         }
         println()

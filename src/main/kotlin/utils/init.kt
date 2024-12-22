@@ -5,7 +5,7 @@ import java.nio.file.Paths
 
 
 fun main(args: Array<String>) {
-    createPackagesForDay(13)
+    createPackagesForDay(15)
 }
 
 fun createPackagesForDay(day: Int) {
@@ -20,8 +20,6 @@ fun createPackagesForDay(day: Int) {
     val mainFilePath = Paths.get("$path/Day$day.kt");
     Files.createFile(mainFilePath)
     Files.writeString(mainFilePath, mainFileContent(day))
-
-
 
 }
 
