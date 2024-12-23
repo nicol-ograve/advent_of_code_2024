@@ -9,7 +9,7 @@ sealed class WarehouseTile {
 
     class Box(val side: BoxSide) : WarehouseTile() {
         override fun toString(): String {
-            return "O"
+            return if (side == BoxSide.Left) "[" else "]"
         }
     }
 

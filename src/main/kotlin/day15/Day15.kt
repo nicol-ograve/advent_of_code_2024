@@ -9,6 +9,9 @@ fun main() {
     val scanner = getDataScanner(15, if (isDemo) arrayOf("demo") else emptyArray())
 
     val warehouse = Warehouse(scanner)
+
+
+
     while (warehouse.instructions.isNotEmpty()) {
         warehouse.executeNextInstruction()
         // warehouse.matrix.print()

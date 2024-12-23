@@ -132,3 +132,11 @@ fun Direction.turn90DegRight(): Direction {
 fun Direction.turn90DegLeft(): Direction {
     return this.reversed.turn90DegRight()
 }
+
+fun Direction.isHorizontal(): Boolean {
+    return this is Right || this is Left
+}
+
+fun Direction.isVertical(): Boolean {
+    return this is Up || this is Down
+}
