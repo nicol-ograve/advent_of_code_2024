@@ -1,10 +1,6 @@
  package day10
 
-import day6.TerrainTile
-import shared.Point
 import utils.getDataLines
-import utils.getDataScanner
-        import java.util.Scanner
 
 fun main() {
     val isDemo = false

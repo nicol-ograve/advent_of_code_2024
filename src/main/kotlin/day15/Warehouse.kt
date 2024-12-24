@@ -1,6 +1,5 @@
 package day15
 
-import day6.TerrainTile
 import shared.*
 import java.lang.Exception
 import java.lang.RuntimeException

@@ -68,7 +68,6 @@ class TrailFinder(val matrix: Matrix<Int>, val countDistinctPaths: Boolean) {
 
 class PathPosition(val point: Point, val directions: Array<Direction>)
 
-// Micro-optimization
 val nextDirections = hashMapOf<Direction, Array<Direction>>(
     Pair(Up, arrayOf(Right, Up, Left)),
     Pair(Right, arrayOf(Down, Right, Up)),

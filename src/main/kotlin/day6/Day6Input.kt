@@ -2,11 +2,8 @@ package day6
 
 import shared.Matrix
 import shared.Point
+import shared.TerrainTile
 
-
-enum class TerrainTile {
-    Empty, Obstruction
-}
 
 class Day6Input(lines: List<String>) {
 
