@@ -9,6 +9,9 @@ fun main() {
     val race = ReindeerRace(lines)
     val result = race.findBestPath()
 
+    val i: Int = 1
+
+
 
     println(result)
 }
