@@ -8,12 +8,12 @@ class ReindeerRace(lines: List<String>) {
 
 
     val matrix: Matrix<TerrainTile>
-    lateinit var initialReindeerPosition: Point
-    lateinit var finalPosition: Point
+    private lateinit var initialReindeerPosition: Point
+    private lateinit var finalPosition: Point
 
-    var reindeerDirection: Direction = Right
+    private var reindeerDirection: Direction = Right
 
-    val minCosts = hashMapOf<Point, Long>()
+    private val minCosts = hashMapOf<Point, Long>()
 
     init {
 
