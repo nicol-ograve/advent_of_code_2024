@@ -1,8 +1,8 @@
 package day19
 
-class TowelsDesigner(patterns: List<String>, val towels: List<String>) {
+class TowelsDesigner(patterns: List<String>, private val towels: List<String>) {
 
-    val rootPatternStep = PatternStep("")
+    private val rootPatternStep = PatternStep("")
 
     init {
         for (pattern in patterns) {
@@ -10,38 +10,51 @@ class TowelsDesigner(patterns: List<String>, val towels: List<String>) {
         }
     }
 
-    fun createTowels(): Int {
+    fun createTowels(): Long {
 
-        return towels.count {
-            canCreateTowel(it)
+        return towels.sumOf {
+            createTowel(it)
         }
     }
 
-    private fun canCreateTowel(towel: String): Boolean {
+    private fun createTowel(towel: String): Long {
 
         var currentIndex = 0
-        var runningPatterns = mutableListOf<PatternStep>(rootPatternStep)
+        var runningPatterns = mutableListOf<PatternStepRef>(
+            PatternStepRef(rootPatternStep)
+        )
 
         while (currentIndex < towel.length) {
-            val hasFinalPattern = runningPatterns.any { it.isFinal }
-            if (hasFinalPattern) {
-                runningPatterns.add(rootPatternStep)
+            val finalPatterns = runningPatterns.sumOf { if (it.ref?.isFinal == true) it.refsCount else 0 }
+            if (finalPatterns > 0) {
+                runningPatterns.add(PatternStepRef(rootPatternStep, finalPatterns))
             }
 
-            runningPatterns = runningPatterns.mapNotNull { it.nextPattern(towel[currentIndex]) }.toMutableList()
+            val nextChar = towel[currentIndex]
+
+            runningPatterns.forEach { it.nextPattern(nextChar) }
+            runningPatterns = runningPatterns.filter { it.ref != null }.toMutableList()
 
 
             currentIndex++
         }
 
-        val available = runningPatterns.any { it.isFinal }
+        // Part 1: return if(runningPatterns.size > 0) 1 else 0
+        return runningPatterns.sumOf {
+           if(it.ref?.isFinal == true) it.refsCount  else 0
+        }
+    }
+}
 
-        return available
+class PatternStepRef(var ref: PatternStep?, var refsCount: Long = 1L) {
+    fun nextPattern(char: Char): PatternStep? {
+        ref = ref?.children?.get(char)
+        return ref
     }
 }
 
 
-class PatternStep(val prefix: String) {
+class PatternStep(private val prefix: String) {
 
     val children: HashMap<Char, PatternStep> = hashMapOf()
     var isFinal = false
