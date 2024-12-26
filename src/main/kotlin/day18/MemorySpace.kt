@@ -2,8 +2,6 @@ package day18
 
 import day16.ReindeerPath
 import day16.Result
-import day16.allDirections
-import day16.nextDirections
 import shared.*
 
 class MemorySpace(val matrix: Matrix<TerrainTile>) {

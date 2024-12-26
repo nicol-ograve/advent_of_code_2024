@@ -1,6 +1,5 @@
 package day16
 
-import day10.PathPosition
 import shared.*
 
 
@@ -118,13 +117,3 @@ data class ReindeerPath(
 )
 
 data class Result(val cost: Int, val points: MutableList<Point>)
-
-val allDirections = arrayOf(Down, Right, Up, Left)
-
-// Micro-optimization
-val nextDirections = hashMapOf<Direction, Array<Direction>>(
-    Pair(Up, arrayOf(Right, Up, Left)),
-    Pair(Right, arrayOf(Down, Right, Up)),
-    Pair(Down, arrayOf(Left, Down, Right)),
-    Pair(Left, arrayOf(Up, Left, Down)),
-)

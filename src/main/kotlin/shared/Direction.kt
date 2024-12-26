@@ -19,6 +19,11 @@ object Up : Direction {
 
     override val reversed: Direction
         get() = Down
+
+
+    override fun toString(): String {
+        return "^"
+    }
 }
 
 object Down : Direction {
@@ -33,6 +38,10 @@ object Down : Direction {
 
     override val reversed: Direction
         get() = Up
+
+    override fun toString(): String {
+        return "v"
+    }
 }
 
 object Left : Direction {
@@ -46,6 +55,10 @@ object Left : Direction {
 
     override val reversed: Direction
         get() = Right
+
+    override fun toString(): String {
+        return "<"
+    }
 }
 
 object Right : Direction {
@@ -59,6 +72,10 @@ object Right : Direction {
 
     override val reversed: Direction
         get() = Left
+
+    override fun toString(): String {
+        return ">"
+    }
 }
 
 
@@ -140,3 +157,14 @@ fun Direction.isHorizontal(): Boolean {
 fun Direction.isVertical(): Boolean {
     return this is Up || this is Down
 }
+
+
+val allDirections = arrayOf(Down, Right, Up, Left)
+
+// Micro-optimization
+val nextDirections = hashMapOf<Direction, Array<Direction>>(
+    Pair(Up, arrayOf(Right, Up, Left)),
+    Pair(Right, arrayOf(Down, Right, Up)),
+    Pair(Down, arrayOf(Left, Down, Right)),
+    Pair(Left, arrayOf(Up, Left, Down)),
+)
