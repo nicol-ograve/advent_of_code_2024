@@ -1,5 +1,9 @@
 package shared
 
 enum class TerrainTile {
-    Empty, Obstruction
+    Empty, Obstruction;
+
+    override fun toString(): String {
+        return if(this == Empty) "." else "#"
+    }
 }

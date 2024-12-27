@@ -6,7 +6,7 @@ import shared.*
 
 class MemorySpace(val matrix: Matrix<TerrainTile>) {
 
-    val minCosts = hashMapOf<Point, Int>()
+    private val minCosts = hashMapOf<Point, Int>()
     fun findBestPath(): Int? {
 
         val position = Point(0, 0)

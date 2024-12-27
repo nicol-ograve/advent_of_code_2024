@@ -26,7 +26,6 @@ fun main() {
 
     val run = CpuRun(mtx, initialPosition!!, finalPosition!!)
 
-    // Too low: 1501
     val result = run.findCuts()
 
     println(result)

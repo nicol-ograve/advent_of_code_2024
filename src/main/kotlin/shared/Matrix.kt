@@ -24,6 +24,17 @@ fun <T> Array<Array<T>>.print() {
     }
 }
 
+fun <T> Array<Array<T>>.print(customPrinter: (Point) -> String?) {
+    for (row in indices) {
+        for (column in this[row].indices) {
+
+            val customPrint = customPrinter(Point(column, row))
+            print(customPrint ?: this[row][column])
+        }
+        println()
+    }
+}
+
 fun <T> Matrix<T>.rows(): Int {
     return size
 }
