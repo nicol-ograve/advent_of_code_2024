@@ -86,7 +86,7 @@ class CpuRun(val matrix: Matrix<TerrainTile>, val initialPosition: Point, val fi
             costs[position] = steps
             list.add(position)
         } while (position != initialPosition)
-        
+
         return list.reversed()
 
     }
