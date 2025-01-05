@@ -132,6 +132,23 @@ object UpRight : Direction {
         get() = DownLeft
 }
 
+object StandDirection :Direction{
+    override fun moveFrom(startPoint: Point, times: Int): Point {
+        return startPoint
+    }
+
+    override fun canTravelFrom(currentPosition: Point, startPoint: Point): Boolean {
+       return false
+    }
+
+    override val reversed: Direction
+        get() = this
+
+    override fun toString(): String {
+        return "A"
+    }
+}
+
 
 fun Direction.turn90DegRight(): Direction {
     return when (this) {
@@ -143,6 +160,7 @@ fun Direction.turn90DegRight(): Direction {
         DownLeft -> UpLeft
         Left -> Up
         UpLeft -> UpRight
+        StandDirection -> StandDirection
     }
 }
 
