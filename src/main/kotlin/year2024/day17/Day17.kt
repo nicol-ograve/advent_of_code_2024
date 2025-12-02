@@ -22,7 +22,7 @@ fun main() {
     )
 
     // Wrong: 5,4,7,6,4,7,5,0,4
-    val result =computer.executeProgram()
+    val result = computer.executeProgram()
     println(result)
     println("END")
 

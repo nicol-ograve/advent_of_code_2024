@@ -39,7 +39,7 @@ class Stone private constructor(initialValue: Long, val onSplit: () -> Unit) {
             throw RuntimeException("Nonsense")
         }
 
-        var result = -1L
+        var result: Long
         val stringValue = value.toString()
         if (value != null) {
             if (value == 0L) {
