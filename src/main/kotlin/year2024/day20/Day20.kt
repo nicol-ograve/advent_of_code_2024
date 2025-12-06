@@ -1,10 +1,8 @@
-package day20
+package year2024.day20
 
 import shared.Point
 import shared.TerrainTile
 import utils.getDataLines
-import utils.getDataScanner
-import java.util.Scanner
 
 fun main() {
     val isDemo = false

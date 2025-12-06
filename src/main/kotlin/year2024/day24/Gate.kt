@@ -1,7 +1,6 @@
-package day24
+package year2024.day24
 
 import java.lang.RuntimeException
-import java.util.stream.Stream
 
 enum class GateType {
     AND, OR, XOR;

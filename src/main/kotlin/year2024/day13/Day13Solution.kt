@@ -1,7 +1,4 @@
-package day13
-
-import shared.Point
-import shared.prime.factorize
+package year2024.day13
 
 class Day13Solution(val input: Day13Input) {
 

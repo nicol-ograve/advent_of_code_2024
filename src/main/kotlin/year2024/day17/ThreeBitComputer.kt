@@ -1,4 +1,4 @@
-package day17
+package year2024.day17
 
 enum class ThreeBitRegister {
     A, B, C

@@ -1,7 +1,6 @@
-package day7
+package year2024.day7
 
 import utils.getDataScanner
-import java.util.Scanner
 
 fun main() {
     val isDemo = false

@@ -1,4 +1,4 @@
-package day11
+package year2024.day11
 /*
 class DynamicStone(val initialValue: Long, val onSplit: () -> Unit) {
     var value: Long?

@@ -1,4 +1,4 @@
-package day6
+package year2024.day6
 
 import utils.getDataLines
 

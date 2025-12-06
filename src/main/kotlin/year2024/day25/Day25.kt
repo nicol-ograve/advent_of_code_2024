@@ -1,9 +1,8 @@
- package day25
+ package year2024.day25
 
 import utils.getDataScanner
-        import java.util.Scanner
 
-fun main() {
+ fun main() {
     val isDemo = false
     val scanner = getDataScanner(25, if (isDemo) arrayOf("demo") else emptyArray())
 

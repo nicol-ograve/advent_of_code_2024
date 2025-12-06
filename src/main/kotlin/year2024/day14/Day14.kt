@@ -1,4 +1,4 @@
-package day14
+package year2024.day14
 
 import shared.*
 import utils.getDataScanner

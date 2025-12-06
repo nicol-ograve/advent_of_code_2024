@@ -1,8 +1,7 @@
-package day8
+package year2024.day8
 
 import shared.Point
 import shared.inRange
-import kotlin.math.abs
 
 class Day8Solution(val input: Day8Input) {
 

@@ -1,4 +1,4 @@
-package day19
+package year2024.day19
 
 class TowelsDesigner(patterns: List<String>, private val towels: List<String>) {
 

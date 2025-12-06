@@ -23,3 +23,20 @@ fun factorize(value: Long) {
 
     println(factorsMap)
 }
+
+fun getPrimeFactors(value: Long): Set<Long> {
+    val factors = hashSetOf<Long>()
+
+    var factorizedValue = value
+
+    for (factor in primeFactors) {
+
+        while (factorizedValue % factor == 0L) {
+            factors.add(factor)
+            factorizedValue /= factor
+        }
+
+    }
+
+    return factors
+}

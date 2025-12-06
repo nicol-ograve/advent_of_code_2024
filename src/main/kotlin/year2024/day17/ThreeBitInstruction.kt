@@ -1,4 +1,4 @@
-package day17
+package year2024.day17
 
 import java.lang.RuntimeException
 import kotlin.math.pow

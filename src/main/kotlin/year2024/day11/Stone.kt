@@ -1,4 +1,4 @@
-package day11
+package year2024.day11
 
 import java.lang.RuntimeException
 

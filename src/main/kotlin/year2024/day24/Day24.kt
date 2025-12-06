@@ -1,8 +1,7 @@
-package day24
+package year2024.day24
 
 import utils.getDataScanner
 import java.lang.RuntimeException
-import java.util.Scanner
 
 fun main() {
     val isDemo = false

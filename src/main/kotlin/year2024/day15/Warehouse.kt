@@ -1,4 +1,4 @@
-package day15
+package year2024.day15
 
 import shared.*
 import java.lang.Exception

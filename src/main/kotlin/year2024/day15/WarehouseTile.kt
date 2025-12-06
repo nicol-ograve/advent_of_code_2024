@@ -1,4 +1,4 @@
-package day15
+package year2024.day15
 
 sealed class WarehouseTile {
     object Empty : WarehouseTile() {

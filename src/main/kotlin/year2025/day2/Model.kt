@@ -1,4 +1,7 @@
 package year2025.day2
 
-class Model {
+data class Range(val start: Long, val end: Long) {
+    fun contains(value: Long): Boolean {
+        return value in start..end
+    }
 }

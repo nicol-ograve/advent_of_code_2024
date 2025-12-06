@@ -1,4 +1,4 @@
-package day21
+package year2024.day21
 
 import utils.getDataScanner
 

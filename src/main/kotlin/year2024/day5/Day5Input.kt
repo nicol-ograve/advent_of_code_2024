@@ -1,4 +1,4 @@
-package day5
+package year2024.day5
 
 import java.util.Scanner
 

@@ -1,7 +1,6 @@
-package day12
+package year2024.day12
 
 import shared.Matrix
-import shared.Point
 
 class Day12Input(lines: List<String>) {
 

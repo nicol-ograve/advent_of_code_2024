@@ -1,4 +1,4 @@
-package day18
+package year2024.day18
 
 import shared.Matrix
 import shared.Point

@@ -1,4 +1,4 @@
-package day24
+package year2024.day24
 
 
 class Wire(val code: String) {

@@ -1,4 +1,4 @@
-package day3
+package year2024.day3
 
 import shared.checkers.ExactStringChecker
 import shared.checkers.NumberPartChecker

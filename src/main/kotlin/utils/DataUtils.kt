@@ -8,14 +8,34 @@ val getDataFile = { day: Int, isDemo: Boolean ->
      File("src/main/kotlin/day$day/data${if(isDemo) "_demo" else ""}.txt")
 }
 
+val getDataFileWithYear = { day: Int, year: Int, isDemo: Boolean ->
+     File("src/main/kotlin/year$year/day$day/data${if(isDemo) "_demo" else ""}.txt")
+}
+
 val getDataScanner = { day: Int, args: Array<String> ->
     val isDemo = args.isNotEmpty() && args[0] == "demo"
     Scanner(getDataFile(day, isDemo))
 }
 
+val getDataScannerWithYear = { day: Int, year: Int, args: Array<String> ->
+    val isDemo = args.isNotEmpty() && args[0] == "demo"
+    Scanner(getDataFileWithYear(day, year, isDemo))
+}
+
 
 val getDataLines = { day: Int, args: Array<String> ->
     val scanner = getDataScanner(day, args)
+    val list = mutableListOf<String>()
+
+    while (scanner.hasNextLine()){
+        list.add(scanner.nextLine())
+    }
+
+    list.toList()
+}
+
+val getDataLinesWithYear = { day: Int, year: Int, args: Array<String> ->
+    val scanner = getDataScannerWithYear(day, year, args)
     val list = mutableListOf<String>()
 
     while (scanner.hasNextLine()){

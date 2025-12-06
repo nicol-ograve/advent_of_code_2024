@@ -1,4 +1,4 @@
-package day13
+package year2024.day13
 
 import shared.Point
 import java.util.Scanner

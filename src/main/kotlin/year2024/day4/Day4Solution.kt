@@ -1,4 +1,4 @@
-package day4
+package year2024.day4
 
 import shared.*
 import shared.checkers.ExactStringChecker

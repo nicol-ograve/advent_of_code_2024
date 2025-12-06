@@ -1,4 +1,4 @@
-package day16
+package year2024.day16
 
 import shared.*
 

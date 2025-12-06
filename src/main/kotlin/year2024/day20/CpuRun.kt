@@ -1,7 +1,6 @@
-package day20
+package year2024.day20
 
 import shared.*
-import kotlin.math.cos
 
 class CpuRun(val matrix: Matrix<TerrainTile>, val initialPosition: Point, val finalPosition: Point) {
 

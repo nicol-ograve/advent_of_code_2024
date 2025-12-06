@@ -1,8 +1,4 @@
-package day7
-
-import java.util.Queue
-import kotlin.math.abs
-import kotlin.math.log10
+package year2024.day7
 
 class Day7Solution(private val input: Day7Input, private val withConcatOperator: Boolean) {
 
