@@ -30,7 +30,6 @@ class Day2Solver {
 
                 if (isInvalid(i, sections)) {
                     invalidIds.add(i)
-                    println(i)
                 }
             }
         }
