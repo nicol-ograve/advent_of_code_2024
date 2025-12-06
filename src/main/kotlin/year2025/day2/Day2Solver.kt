@@ -7,7 +7,7 @@ class Day2Solver {
 
     val invalidIds = mutableSetOf<Long>()
 
-    public fun solve(ranges: List<Range>): Long {
+    fun solve(ranges: List<Range>): Long {
         ranges.forEach {
             checkRange(it)
         }
@@ -18,7 +18,6 @@ class Day2Solver {
 
         var digits: Int = range.start.digitsCount()
         var sections = getSections(digits)
-
 
         for (i in range.start..range.end) {
 
@@ -34,18 +33,14 @@ class Day2Solver {
                     println(i)
                 }
             }
-
         }
-
     }
-
 
     private fun isInvalid(value: Long, sections: List<Section>): Boolean{
         return sections.any { isInvalid(value, it) }
     }
 
     private fun isInvalid(value:Long, section: Section): Boolean{
-
         val stringValue = value.toString()
 
         for(i in 1 until section.count){
@@ -78,8 +73,6 @@ class Day2Solver {
 
 
 private data class Section(val size: Int, val count: Int)
-
-
 
 fun Long.digitsCount(): Int {
     return log10(toDouble()).toInt() + 1
