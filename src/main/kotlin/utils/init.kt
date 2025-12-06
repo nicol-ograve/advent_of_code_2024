@@ -5,7 +5,7 @@ import java.nio.file.Paths
 
 
 fun main(args: Array<String>) {
-    createPackagesForDay(2,2025)
+    createPackagesForDay(3,2025)
 }
 
 fun createPackagesForDay(day: Int, year: Int? = null) {
@@ -20,14 +20,14 @@ fun createPackagesForDay(day: Int, year: Int? = null) {
 
     val mainFilePath = Paths.get("$path/Day$day.kt");
     Files.createFile(mainFilePath)
-    Files.writeString(mainFilePath, mainFileContent(day))
+    Files.writeString(mainFilePath, mainFileContent(day, year))
 
 }
 
 
-fun mainFileContent(day: Int): String {
+fun mainFileContent(day: Int, year: Int? = null): String {
     return """
-     package day$day
+     package ${year?.let { "year$it." } ?: ""}.day$day
 
     import utils.getDataScanner
             import java.util.Scanner
