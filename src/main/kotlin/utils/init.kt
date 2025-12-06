@@ -4,8 +4,8 @@ import java.nio.file.Files
 import java.nio.file.Paths
 
 
-fun main(args: Array<String>) {
-    createPackagesForDay(3,2025)
+fun main() {
+    createPackagesForDay(4,2025)
 }
 
 fun createPackagesForDay(day: Int, year: Int? = null) {
@@ -27,14 +27,13 @@ fun createPackagesForDay(day: Int, year: Int? = null) {
 
 fun mainFileContent(day: Int, year: Int? = null): String {
     return """
-     package ${year?.let { "year$it." } ?: ""}.day$day
+     package ${year?.let { "year$it" } ?: ""}.day$day
 
-    import utils.getDataScanner
-            import java.util.Scanner
+    import utils.getDataLinesWithYear
 
     fun main() {
         val isDemo = true
-        val scanner = getDataScanner($day, if (isDemo) arrayOf("demo") else emptyArray())
+        val lines = getDataLinesWithYear($day, ${year ?: ""}, if (isDemo) arrayOf("demo") else emptyArray())
         
         val result = "";  
         
