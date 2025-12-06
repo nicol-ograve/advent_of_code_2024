@@ -5,11 +5,11 @@ import java.nio.file.Paths
 
 
 fun main() {
-    createPackagesForDay(4,2025)
+    createPackagesForDay(5, 2025)
 }
 
 fun createPackagesForDay(day: Int, year: Int? = null) {
-    val yearDirectory = if(year == null) "" else "year$year/"
+    val yearDirectory = if (year == null) "" else "year$year/"
     val path = Paths.get("src/main/kotlin/$yearDirectory/day$day")
 
     if (Files.notExists(path))

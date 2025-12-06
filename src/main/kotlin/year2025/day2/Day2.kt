@@ -1,5 +1,6 @@
 package year2025.day2
 
+import shared.Range
 import utils.getDataScannerWithYear
 
 fun main() {
