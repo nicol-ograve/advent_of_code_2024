@@ -6,18 +6,46 @@ fun main() {
     val isDemo = false
     val lines = getDataLinesWithYear(6, 2025, if (isDemo) arrayOf("demo") else emptyArray())
 
-    val numberLines = lines.map { line ->
-        line.split(" ").filter { it.isNotEmpty() }
+    val numberLines = lines.take(lines.size - 1)
+    val breakpoints = mutableListOf<Int>()
+    for (i in numberLines[0].indices) {
+        if (numberLines.all { it[i] == ' ' }) {
+            breakpoints.add(i)
+        }
     }
-    val problems = mutableListOf<Problem>()
-    for (p in numberLines[0].indices) {
-        val numbers = numberLines.take(numberLines.size - 1).map { it[p].toLong() }
-        val operation = if (numberLines.last()[p] == "*") Operation.Multiply else Operation.Sum
-        problems.add(Problem(numbers, operation))
-    }
-    val result = problems.sumOf { it.solve() }
+
+    var i = 0
+    var startIndex: Int
+    var endIndex: Int
+
+    var result = 0L
+
+    do {
+        startIndex = if (i == 0) 0 else breakpoints[i - 1] + 1
+        endIndex = if (i == breakpoints.size) numberLines[0].count() - 1 else breakpoints[i] - 1
+
+        val problemNumbers = mutableListOf<Long>()
+        for (index in startIndex..endIndex) {
+
+            var numberString = ""
+            for (r in 0 until numberLines.size) {
+                val nextChar = numberLines[r][index]
+                if (nextChar != ' ') {
+                    numberString += nextChar
+                }
+            }
+            problemNumbers.add(numberString.toLong())
+        }
+
+        val operation = if (lines.last()[startIndex] == '+') Operation.Sum else Operation.Multiply
+        val problem = Problem(problemNumbers, operation)
+        result += problem.solve()
+
+        i++
+    } while (i < breakpoints.size + 1)
 
     println(result)
+
 }
 
 enum class Operation { Sum, Multiply }
