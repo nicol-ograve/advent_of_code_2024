@@ -7,7 +7,7 @@ My solutions to [Advent of Code](https://adventofcode.com/) puzzles, written in 
 | Year | Stars   |
 |------|---------|
 | [2024](./src/main/kotlin/year2024) | ⭐ 46/50 |
-| [2025](./src/main/kotlin/year2025) | ⭐ 15/16 |
+| [2025](./src/main/kotlin/year2025) | ⭐ 16/16 |
 
 ## Project Structure
 

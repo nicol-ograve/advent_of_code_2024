@@ -4,11 +4,9 @@ import shared.Point3D
 import utils.getDataLinesWithYear
 
 fun main() {
-    val isDemo = true
+    val isDemo = false
     val boxes = getDataLinesWithYear(8, 2025, if (isDemo) arrayOf("demo") else emptyArray())
         .map { line -> line.split(",").let { Point3D(it[0].toInt(), it[1].toInt(), it[2].toInt()) } }
-
-    val connectionsCount = if (isDemo) 10 else 1000
 
     val connections = mutableListOf<Connection>()
 
@@ -25,7 +23,8 @@ fun main() {
 
     val circuitsMap = hashMapOf<Point3D, Circuit>()
 
-    for (i in 0 until connectionsCount) {
+    var i = 0
+    while (true) {
         val nextConnection = sortedConnections[i]
 
         val (firstBox, secondBox) = nextConnection
@@ -49,11 +48,13 @@ fun main() {
             }
         }
 
+        if (circuitsMap.keys.size == boxes.size) {
+            println(firstBox.x.toLong() * secondBox.x.toLong())
+            break
+        }
+        i++
     }
 
-    val result = circuitsMap.values.toSet().map { it.boxes.size }.sortedDescending().take(3).reduce { a, b -> a * b }
-
-    println(result)
 }
 
 
