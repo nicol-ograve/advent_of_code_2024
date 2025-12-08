@@ -1,10 +1,10 @@
 package year2024.day17
 
-import utils.getDataScanner
+import utils.getDataScannerWithYear
 
 fun main() {
     val isDemo = false
-    val scanner = getDataScanner(17, if (isDemo) arrayOf("demo") else emptyArray())
+    val scanner = getDataScannerWithYear(17, 2024, if (isDemo) arrayOf("demo") else emptyArray())
 
     val registerInitialValues = hashMapOf(
         Pair(ThreeBitRegister.A, readRegisterValue(scanner.nextLine(), "A")),
@@ -13,7 +13,7 @@ fun main() {
     )
 
     scanner.nextLine()
-    val program = scanner.nextLine().replace("Program: ", "").split(",").map { it.toInt() }
+    val program = scanner.nextLine().replace("Program: ", "").split(",").map { it.toLong() }
 
     val computer = ThreeBitComputer(
         registerInitialValues,
@@ -27,6 +27,6 @@ fun main() {
 
 }
 
-private fun readRegisterValue(string: String, registerName: String): Int {
-    return string.replace("Register $registerName: ", "").toInt()
+private fun readRegisterValue(string: String, registerName: String): Long {
+    return string.replace("Register $registerName: ", "").toLong()
 }

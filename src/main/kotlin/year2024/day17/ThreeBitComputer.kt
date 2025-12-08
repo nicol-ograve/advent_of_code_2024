@@ -4,19 +4,19 @@ enum class ThreeBitRegister {
     A, B, C
 }
 
-class ThreeBitComputer(val registerValues: HashMap<ThreeBitRegister, Int>, val program: List<Int>) {
+class ThreeBitComputer(val registerValues: HashMap<ThreeBitRegister, Long>, val program: List<Long>) {
     val registers = registerValues
-    var instructionPointer = 0
+    var instructionPointer = 0L
 
-    private val instructions: Array<Pair<ThreeBitInstruction, Int>>
+    private val instructions: Array<Pair<ThreeBitInstruction, Long>>
 
-    var onOutput: ((Int) -> Unit)? = { print("$it,") }
+    var onOutput: ((Long) -> Unit)? = { print("$it,") }
 
     init {
-        val instructionsList = mutableListOf<Pair<ThreeBitInstruction, Int>>()
+        val instructionsList = mutableListOf<Pair<ThreeBitInstruction, Long>>()
         for (i in program.indices step 2) {
             val pair = Pair(
-                ThreeBitInstruction.getInstruction(program[i], this),
+                ThreeBitInstruction.getInstruction(program[i].toInt(), this),
                 program[i + 1]
             )
             instructionsList.add(pair)
@@ -24,9 +24,9 @@ class ThreeBitComputer(val registerValues: HashMap<ThreeBitRegister, Int>, val p
         instructions = instructionsList.toTypedArray()
     }
 
-    fun executeProgram(): Int {
+    fun executeProgram(): Long {
         //for (i in 0..10000000) {
-        var i = 0
+        var i = 4398046511104
         while (true) {
             i++
 
@@ -44,7 +44,11 @@ class ThreeBitComputer(val registerValues: HashMap<ThreeBitRegister, Int>, val p
                 if (nextOutputPointer >= program.size || program[nextOutputPointer] != it) {
                     outputError = true
                 } else{
-                    if(nextOutputPointer == 6){
+                    if(nextOutputPointer == 10){
+                        println(i)
+                    }
+                    if(nextOutputPointer == 16){
+                        println("AAAAAAA")
                         println(i)
                     }
                 }
@@ -53,7 +57,7 @@ class ThreeBitComputer(val registerValues: HashMap<ThreeBitRegister, Int>, val p
             }
 
             while (instructionPointer < instructions.size && !outputError) {
-                val instruction = instructions[instructionPointer]
+                val instruction = instructions[instructionPointer.toInt()]
                 instruction.first.execute(instruction.second)
             }
             if (!outputError && nextOutputPointer == program.size) {
