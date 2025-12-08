@@ -4,10 +4,10 @@ My solutions to [Advent of Code](https://adventofcode.com/) puzzles, written in 
 
 ## Progress
 
-| Year | Stars |
-|------|-------|
+| Year | Stars   |
+|------|---------|
 | [2024](./src/main/kotlin/year2024) | ⭐ 46/50 |
-| [2025](./src/main/kotlin/year2025) | ⭐ 14/14 |
+| [2025](./src/main/kotlin/year2025) | ⭐ 15/16 |
 
 ## Project Structure
 
