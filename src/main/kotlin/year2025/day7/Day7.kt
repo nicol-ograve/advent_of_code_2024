@@ -27,8 +27,6 @@ fun main() {
     val solver = Day7Solver(matrix, startingPoint)
     val result = solver.solvePart2()
 
-
-
     println(result)
 }
 
